@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/panel.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+	</head>
+	<body>
+		<div align="center">
+			<img src="img/logo.png" width="150px" height="150px" style="margin-top: 25%;"/>
+			<form class="panell" id="signinform" method="post" action="php/loginn.php" onsubmit="return mysub(true)">
+				<input id="yi" name="una" type="text" class="normal-input" placeholder="请输入账号"/><br />
+				<input id="er" name="upa" type="password" class="normal-input" placeholder="请输入密码"/><br />
+				<button class="button">登录</button>
+				<p><a href="zhuce.html">没有账号?点击注册!</a></p>
+			</form>
+		</div>
+		<script>
+			function mysub(flag) {
+				return flag;
+			}
+			$('#signinform').submit(function () {
+				if (document.getElementById('yi').value == "") {
+					alert('请输入账号！');
+					return mysub(false);
+				} else if (document.getElementById('er').value == "") {
+					alert('请输入密码！');
+					return mysub(false);
+				} else {
+					return mysub(true);
+				}
+			})
+		</script>
+	</body>
+</html>

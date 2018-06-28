@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/self-css.css" />
+		<link rel="stylesheet" href="css/find.css" />
+		<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>-->
+		<!--<script type="text/javascript" src="js/bootstrap.min.js" ></script>-->
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/popper.min.js" ></script>
+		<script type="text/javascript" src="js/boot.js" ></script>
+		<script src="js/jquery.lazyload.js?v=1.9.1"></script>
+		<script type="text/javascript" src="js/self_js.js" ></script>
+		<title></title>
+		<script>
+			
+			/*ajax加载*/
+			$(function(){
+				$("img.lazy").lazyload({effect: "fadeIn"});
+				var s=location.search.substring(1);
+				s1=s.replace('title_id=','');
+				$('#article_1').append(s1);
+			    $("#article_1").empty();//清空text_1
+					$.post("/bs/php/article.php",{
+						article1:s1,
+					},
+					function(data,status){
+						var article_result=data;
+						$('#article_1').append(article_result);//将数据插入text_1
+						$("img.lazy").lazyload({effect: "fadeIn"});//懒加载初始化
+					});
+			});
+		</script>
+	</head>
+	<body>
+		<div data-role="header" data-position="fixed" style="background-color: #F2F2F2;text-align: center;padding: 10px;">
+			<font id="title">游记</font>
+		</div>
+		<a href="http://www.baidu.com" onclick="if(confirm('确认百度吗？')==false)return false;">百度</a>
+		<div id="article_1" align="center">
+			<div style="margin-top: 15px;">正在努力加载中。。。</div>
+		</div>
+		<nav class="navbar navbar-expand-sm  fixed-bottom " style="border-top: solid 1px #B9BBBE;background-color: #FFFFFF;filter:alpha(opacity:30); opacity:0.87;">
+			<ul class="nav" style="width: 100%;">
+			    <li class="nav-item col">
+			    	<a class="nav-link" href="javascript:test111();" id="comment" style="text-align: center;">
+			    		<img style="width: 30%;height: 30px;" src="img/comment2.png"/>
+			    		<span class="badge badge-light" style="border: 1px solid #007AFF;color: #007AFF;" id="comment_num" value="int">1</span>
+			    	</a>
+			    </li>
+			    <li class="nav-item col">
+			    	<a class="nav-link" href="#" id="praise" style="text-align: center;" onclick="if(confirm('确认百度吗？')==false)return false;">
+			    		<img style="width: 30%;height: 30px;" src="img/praise2.png"/>
+			    		<span class="badge badge-light" style="border: 1px solid #007AFF;color: #007AFF;" >111</span>
+			    	</a>
+			    </li>
+			</ul>
+		</nav>
+	</body>
+	<script>
+		function test111(){
+			num=document.getElementById("comment_num").getAttribute("value");
+			$("#comment_num").empty();
+			num=num+123;
+			$('#comment_num').append(num);
+			alert(num)
+		}
+	</script>
+</html>

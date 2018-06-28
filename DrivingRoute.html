@@ -1,0 +1,142 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
+		#allmap{height:500px;width:100%;}
+		#r-result,#r-result table{width:100%;}
+	</style>
+	<link rel="stylesheet" href="css/self.css" />
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=X0T93Aa5f1xoUe5KFLIH9Gci6Tpcb2Gs"></script>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script>
+	<script type="text/javascript">
+		//hQGHuMEAyLn('[id="bb9c190068b84055"]');
+	</script>
+</head>
+<body>
+	<div>
+		<button onclick="history.go(-1)" class="back">←返回</button>
+	</div>
+	<div id="allmap"></div>
+	<div id="driving_way">
+		<div></div>
+		起点：<input type="text" id="start" style="width: 20%;"/>
+		终点：<input type="text" id="end" style="width: 20%;"/>
+		<input type="button" id="result" value="查询"/>
+		<button id="switch">切换</button>
+		<input type="button" id="navigation_btn" value="开始导航"/>
+		<div id="r-result"></div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	
+	//定位
+	// 添加带有定位的导航控件
+  	var navigationControl = new BMap.NavigationControl({
+    // 靠左上角位置
+    	anchor: BMAP_ANCHOR_TOP_LEFT,
+    // LARGE类型
+    	type: BMAP_NAVIGATION_CONTROL_LARGE,
+    // 启用显示定位
+    	//enableGeolocation: true
+  	});
+  	map.addControl(navigationControl);
+  	// 添加定位控件
+  	var geolocationControl = new BMap.GeolocationControl();
+  	var address1="";
+  	var address2="";
+  	geolocationControl.addEventListener("locationSuccess", function(e){
+    // 定位成功事件
+    	var address = "";
+    	address += e.addressComponent.province;
+    	address += e.addressComponent.city;
+    	address += e.addressComponent.district;
+    	address += e.addressComponent.street;
+    	address += e.addressComponent.streetNumber;
+    	alert("当前定位地址为：" + address);
+    	address1=address;
+    	//alert(address1);
+    	$("#start").val(address1)
+  	});
+  	geolocationControl.addEventListener("locationError",function(e){
+    // 定位失败事件
+    	alert(e.message);
+  	});
+  	map.addControl(geolocationControl);
+  	
+  	
+  	
+  	//切换
+  	$("#switch").click(function(){
+  		address2=$("#end").val();
+  		var address_test=address1;
+  		address1=address2;
+  		address2=address_test;
+  		$("#start").val(address1);
+  		$("#end").val(address2);
+  	})
+  	
+  	//路线规划
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+	//三种驾车策略：最少时间，最短距离，避开高速
+	var routePolicy = [BMAP_DRIVING_POLICY_LEAST_TIME,BMAP_DRIVING_POLICY_LEAST_DISTANCE,BMAP_DRIVING_POLICY_AVOID_HIGHWAYS];
+	$("#result").click(function(){
+		var start = $("#start").val();
+		var end = $("#end").val();
+		if(start==""||end==""){
+			alert("请输入地址");
+		}
+		map.clearOverlays(); 
+		var i=$("#driving_way select").val();
+		search(start,end,routePolicy[i]);
+		function search(start,end,route){ 
+			var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true},policy: route});
+			driving.search(start,end);
+		}
+		var transit = new BMap.DrivingRoute(map, {
+			renderOptions: {
+				map: map,
+				panel: "r-result",
+				enableDragging : true //起终点可进行拖拽
+			},  
+		});
+		transit.search(start,end);
+		
+	});
+	
+	
+	//放大缩小
+	setTimeout(function(){
+		map.setZoom(14);   
+	});
+	map.enableScrollWheelZoom(true);
+	
+	
+	
+	//导航(定时更新功能)
+	$("#navigation_btn").click(function(){
+		var navigation_test1=0;
+		if($("#navigation_btn").val()=="停止导航"){
+			$("#navigation_btn").val("开始导航")
+			navigation_test1=0;
+		}
+		else{
+			$("#navigation_btn").val("停止导航")
+			navigation_test1=1;
+			alert("开始导航");
+		}
+		
+		if(navigation_test1==1){
+			nz_bg=setInterval(function(){
+				alert("Hello")
+			},3000);
+		}else{
+			nz_bg=clearInterval(nz_bg)
+		}
+	})
+</script>

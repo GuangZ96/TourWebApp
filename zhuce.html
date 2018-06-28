@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/panel.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+	</head>
+	<body>
+		<div align="center">
+			<img src="img/logo.png" width="150px" height="150px" style="margin-top: 25%;"/>
+			<form class="panell" action="php/regg.php" id="signupform" method="post" onsubmit="return mysub(true)">
+				<input placeholder="请输入账号" id="one" type="text" class="normal-input" name="uname" required="required"/><br />
+				<input placeholder="请输入密码" id="two" type="password" class="normal-input" name="upasswd"/><br />
+				<input placeholder="请再次输入密码" id="three" type="password" class="normal-input" name="upasswdcom"/><br />
+				<input placeholder="请输入电子邮箱" id="four" type="email" class="normal-input" name="uemail" /><br />
+				<button class="button">注册</button>
+			</form>
+		</div>
+		<script>
+			function mysub(flag) {
+				return flag;
+			}
+			$('#signupform').submit(function () {
+				var three = document.getElementById('three').value;
+				var two = document.getElementById('two').value;
+				if (document.getElementById('one').value == "") {
+					alert('请输入账号！');
+					return mysub(false);
+				} else if (document.getElementById('two').value == "") {
+					alert('请输入密码！');
+					return mysub(false);
+				} else if (document.getElementById('three').value == "") {
+					alert('请再次输入密码！');
+					return mysub(false);
+				} else if (document.getElementById('four').value == "") {
+					alert('请输入邮箱！');
+					return mysub(false);
+				} else if (three != two) {
+					alert('两次密码输入不一致！');
+					return mysub(false);
+				} else {
+					return mysub(true);
+				}
+			})
+		</script>
+	</body>
+</html>

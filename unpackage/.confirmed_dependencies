@@ -1,0 +1,20 @@
+{
+	"index.html": {
+		"refer": [
+			"discovery.html",
+			"my.html"
+		]
+	},
+	"my.html": {
+		"refer": [
+			"index.html",
+			"discovery.html"
+		]
+	},
+	"discovery.html": {
+		"refer": [
+			"my.html",
+			"index.html"
+		]
+	}
+}

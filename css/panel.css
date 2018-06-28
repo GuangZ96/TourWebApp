@@ -1,0 +1,49 @@
+.panell {
+	width: 90%;
+	height: 250px;
+	/*border: 1px solid #777777;
+	border-radius: 5px;*/
+	z-index: 3;
+	/*margin-top: 40%;*/
+}
+.panell .normal-input {
+	width: 70%;
+	height: 30px;
+	margin-top: 15px;
+	border: none;
+	border-bottom: 1px solid #777777;
+	line-height: 25px;
+	font-size: 20px;
+}
+.panell .veri-input {
+	width: 30%;
+	height: 30px;
+	margin-top: 15px;
+	border: none;
+	border-bottom: 1px solid #777777;
+}
+.panell .button {
+	width: 70%;height: 30px;
+	background-color: #3498DB;
+	color: white;
+	border-radius: 8%;
+	margin-top: 10px;
+}
+h3 {
+	font-family: "楷体";
+}
+.panell #code2 {
+	font-family: arial;
+	font-style: italic;
+	font-weight: bold;
+	border: 0;
+	letter-spacing: 2px;
+	color: blue;
+	width: 35%;
+	height: 35px;
+	margin-left: 5%;
+	vertical-align: middle;
+}
+.panell a {
+	text-decoration: none;
+}

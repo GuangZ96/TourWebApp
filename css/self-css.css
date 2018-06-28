@@ -1,0 +1,62 @@
+/*九宫格*/
+.box-a{
+	background: #FFFFFF;
+	overflow: hidden;
+	/*margin: 0 0 25px 0;*/
+}
+.box-a-1{
+	width: 25%;
+	text-align: center;
+	padding: 20px 0px;
+	float: left;
+
+}
+.box-a-1 p{
+	margin: 0px;
+	padding-top: 5px;
+	color: #000000;
+	font-size: 16px;
+}
+.box-a-1 span{
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+	border-radius: 50%;
+	color: #FFFFFF;
+}
+.icon {
+	width: 40px;
+	height: 40px;
+	color: #FFFFFF;
+}
+.bgcolor-1{
+	background: #007AFF;
+}
+.bgcolor-2{
+	background: #FFFF00;
+}
+.bgcolor-3{
+	background: hotpink;
+}
+.bgcolor-4{
+	background: #00ff24;
+}
+.bgcolor-5{
+	background: #6641E2;
+}
+.bgcolor-6{
+	background: #119e02;
+}
+.bgcolor-7{
+	background: #c000ff;
+}
+.bgcolor-8{
+	background: #17cbf2;
+}
+.bgcolor-9{
+	background: #68a1f7;
+}
+.bgcolor-10{
+	background: #ffa800;
+}

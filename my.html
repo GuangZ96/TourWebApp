@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bootstrap 实例</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/person.css" />
+		<!--<script type="text/javascript" src="js/person.js" ></script>-->
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/popper.min.js" ></script>
+		<script type="text/javascript" src="js/boot.js" ></script>
+		<script type="text/javascript" src="js/self_js.js" ></script>
+		<style>
+		/* Make the image fully responsive */
+		.carousel-inner img {
+			width: 100%;
+			height: 100%;
+		}
+		</style>
+	</head>
+	<body>
+		<div data-role="main" id="personal" class="full">
+			<div data-role="header" data-position="fixed" style="background-color: #F2F2F2;text-align: center;padding: 10px;">
+				<font id="title">个人</font>
+			</div>
+			<!--<div style="background: #EDEDED">
+				<div style="background: #EDEDED">
+					<div class="con4">
+						<a><canvas id="cvs" width="200" height="200" style="border-radius: 1000px;background: url(img/sample10.gif)"></canvas></a>
+						<span class="btn upload" >更换头像<input type="file" class="upload_pic" id="upload"/></span>
+					</div>
+				</div>
+			</div>		
+			<div align="center">
+				<a href="#" class="text_decoration_none" style="background: #F3F3F3;color: #000000;">
+					<div style="width: 30%;float: left;background: #F3F3F3;height: 50px;">
+						<div style="font-size: 24px;padding-top: 10px;padding-left: 10px;text-align: left;">昵称</div>
+					</div>
+					<div style="width: 70%;float: left;background: #F3F3F3;height: 50px;">
+						<div style="font-size: 24px;padding-top: 10px;padding-right: 10px;color: #AAAAAA;text-align: right;">傻柳</div>
+					</div>
+				</a>
+				<div style="height: 55px;"></div>
+				<a href="#" class="text_decoration_none" style="background: #F3F3F3;color: #000000;">
+					<div style="width: 30%;float: left;background: #F3F3F3;height: 50px;">
+						<div style="font-size: 24px;padding-top: 10px;padding-left: 10px;text-align: left;">电话</div>
+					</div>
+					<div style="width: 70%;float: left;background: #F3F3F3;height: 50px;">
+						<div style="font-size: 24px;padding-top: 10px;padding-right: 10px;color: #AAAAAA;text-align: right;">13712345678</div>
+					</div>
+				</a>
+			</div>-->
+			<div class="lg-box" id="lg" style="display: none;">
+				<h3>您还未登录！请点击登录按钮跳转至登录页面</h3>
+				<button onclick="i()">Sign in</button>
+			</div>			
+			<div class="item-box" id="myinfo">
+				<div align="center" class="avatar">
+					
+				</div>
+				<div align="center">
+					<p id="yourname"></p>
+				</div>
+				<div class="item">我想去的</div>
+				<div class="item">我去过的</div>
+				<div class="item">我的游记</div>
+				<div class="divide"></div>
+				<div class="item">关于本WebApp</div>
+				<button class="btna" id="btna" onclick="aaa()">退出登录</button>
+			</div>
+		</div>
+		
+		
+		<!--底部导航-->
+		<nav class="navbar navbar-expand-sm  fixed-bottom " style="border-top: solid 1px #B9BBBE;background-color: #FFFFFF;filter:alpha(opacity:30); opacity:0.87;">
+			<ul class="nav" style="width: 100%">
+			    <li class="nav-item col">
+			    	<a class="nav-link" href="index.html" style="text-align: center;">
+			    		<img style="height: 35px;" src="img/home1.png"/>
+			    		<div style="font-size: 12px;color: #8a8a8a;">主页</div>
+			    	</a>
+			    </li>
+			    <li class="nav-item col">
+			    	<a class="nav-link" href="discovery.html" style="text-align: center;">
+			    		<img style="height: 35px;" src="img/discovery1.png"/>
+			    		<div style="font-size: 12px;color: #8a8a8a;">发现</div>
+			    	</a>
+			    </li>
+			    <li class="nav-item col">
+			    	<a class="nav-link" href="#" style="text-align: center;">
+			    		<img style="height: 35px;" src="img/my2.png"/>
+			    		<div style="font-size: 12px;">我的</div>
+			    	</a>
+			    </li>
+			</ul>
+		</nav>
+		<script>
+			function i () {
+				window.location.href="denglu.html";
+			}
+			
+			function getcookiename(cookiename) {
+	        	if (document.cookie.length > 0) {
+	        		pos = document.cookie.indexOf(cookiename + '=');
+	        		if (pos!=-1) {
+	        			pos = pos+cookiename.length+1;
+	        			last = document.cookie.indexOf(";",pos);
+	        			if (last==-1) last=document.cookie.length;
+	        			return unescape(document.cookie.substring(pos,last));
+	        		}
+	        	}
+	        	return "cookie is null!";
+        	}
+
+			if (this.getcookiename('mingzi') == 'cookie is null!') {
+				document.getElementById('myinfo').style.display = "none";
+				document.getElementById('lg').style.display = "block";
+			} else {
+				document.getElementById('myinfo').style.display = "block";
+				document.getElementById('lg').style.display = "none";
+				document.getElementById('yourname').innerHTML = this.getcookiename('mingzi');
+			}
+			
+			function aaa () {
+				document.getElementById('myinfo').style.display = "none";
+				document.getElementById('lg').style.display = "block";
+			}
+		</script>
+	</body>
+</html>

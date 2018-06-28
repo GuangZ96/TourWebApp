@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap 实例</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/self-css.css" />
+	<link rel="stylesheet" href="css/find.css" />
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/popper.min.js" ></script>
+	<script type="text/javascript" src="js/boot.js" ></script>
+	
+	<style>
+	/* Make the image fully responsive */
+	.carousel-inner img {
+		width: 100%;
+		height: 100%;
+	}
+	</style>
+</head>
+<body>
+	<div id="demo" class="carousel slide" data-ride="carousel">
+	  <!-- 指示符 -->
+	    <ul class="carousel-indicators">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+			<li data-target="#demo" data-slide-to="2"></li>
+	    </ul>
+	 
+	  <!-- 轮播图片 -->
+	    <div class="carousel-inner">
+		    <div class="carousel-item active">
+		        <img src="http://static.runoob.com/images/mix/img_fjords_wide.jpg">
+		        <div class="carousel-caption">
+		        	
+		        </div>
+		    </div>
+	    <div class="carousel-item">
+	    	<img src="http://static.runoob.com/images/mix/img_nature_wide.jpg">
+	   		<div class="carousel-caption">
+	    		
+	    	</div>
+	    </div>
+	    <div class="carousel-item">
+	    	<img src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
+	    	<div class="carousel-caption">
+	   			
+	      	</div>
+	    </div>
+	</div>
+	  <!-- 左右切换按钮 -->
+	 	<a class="carousel-control-prev" href="#demo" data-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</a>
+		<a class="carousel-control-next" href="#demo" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
+	</div>
+	<div class='box-a'>
+    	<a href='location.html' >
+    		<div class='box-a-1'>
+    			<span class="bgcolor-1">
+    				<img src="png/map.png" class="icon"/>
+    			</span>
+    			<p>定位</p>
+    		</div>
+    	</a>
+    	<a href='poi.html'>
+    		<div class='box-a-1'>
+    			<span class='bgcolor-3'>
+	    			<img src="png/hotel.png" class="icon" />
+	    		</span>
+    			<p>周边</p>
+    		</div>
+    	</a>
+    	<a href='weather.html'>
+    		<div class='box-a-1'>
+	    		<span class='mui-icon iconfont icon-art bgcolor-5'>
+	    			<img src="png/weather.png" class="icon" />
+	    		</span>
+	    		<p>天气</p>
+    		</div>
+    	</a>
+    	<a href='DrivingRoute.html'><div class='box-a-1'>
+    		<span class='mui-icon iconfont icon-huiji bgcolor-2'>
+    			<img src="png/plans.png" class="icon" />
+    		</span>
+    		<p>路线规划</p>
+    	</div></a>
+    <!--</div>-->
+    </div>
+    <div style="width: 90%;margin-left: 5%;" align="center">
+    	<ul class="nav nav-tabs" role="tablist" >
+		    <li class="nav-item" style="width: 100%;text-align: center;">
+				<a class="nav-link active" data-toggle="tab" href="#tabs_youji">游记</a>
+		    </li>
+		    <!--<li class="nav-item" style="width: 50%;text-align: center;">
+				<a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+		    </li>-->
+		 </ul>
+	    <div class="tab-content" style="border-left:solid 1px #D3D9DF;border-right:solid 1px #D3D9DF;border-bottom:solid 1px #D3D9DF;">
+		    <div id="tabs_youji" class="container tab-pane active" align="left"><br>
+		    <!--<a href="#" class="travel_note">
+	  			<span class="travel_note_img">
+	  				<img src="img/sample10.gif"/>
+	  				<span>精华</span>
+	  			</span>
+	  			<div class="travel_note_title">【爱尔兰】在冰与火之歌中穿行，用最省钱的玩法体验爱尔兰的狂野</div>
+	  		</a>-->
+				<p id="load_p" style="margin-top: 70px;margin-bottom: 70px;text-align: center;">努力加载中。。。</p>
+		    </div>
+		    <!--<div id="menu1" class="container tab-pane fade"><br>
+				<h3>Menu 1</h3>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		    </div>-->
+		</div>
+    </div>
+    <div style="margin-bottom: 100px;height: 10px;"></div>
+<!--底部导航栏-->
+	<nav class="navbar navbar-expand-sm  fixed-bottom " style="border-top: solid 1px #B9BBBE;background-color: #FFFFFF;filter:alpha(opacity:30); opacity:0.87;">
+		<ul class="nav" style="width: 100%">
+		    <li class="nav-item col">
+		    	<a class="nav-link" href="#" style="text-align: center;">
+		    		<img style="height: 35px;" src="img/home2.png"/>
+		    		<div style="font-size: 12px;">主页</div>
+		    	</a>
+		    </li>
+		    <li class="nav-item col">
+		    	<a class="nav-link" href="discovery.html" style="text-align: center;">
+		    		<img style="height: 35px;" src="img/discovery1.png"/>
+		    		<div style="font-size: 12px;color: #8a8a8a;">发现</div>
+		    	</a>
+		    </li>
+		    <li class="nav-item col">
+		    	<a class="nav-link" href="my.html" style="text-align: center;">
+		    		<img style="height: 35px;" src="img/my1.png"/>
+		    		<div style="font-size: 12px;color: #8a8a8a;">我的</div>
+		    	</a>
+		    </li>
+		    
+		</ul>
+	</nav>
+</body>
+	<script type="text/javascript" src="js/home.js" ></script>
+	<script>
+		
+	</script>
+</html>

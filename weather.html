@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/self.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+	    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=e6da2168503498d426e27e66b4941490&plugin=AMap.Geocoder"></script>
+		
+	</head>
+	<body>
+		<div class="container">
+			<button onclick="history.go(-1)">←返回</button>
+			<div align="center" style="margin-top: 20px;">
+				<div class="info" align="center">
+					<p>城市:<span id="ccc">东莞市</span></p>
+					<p>天气:<span id="wea"></span></p>
+					<p>温度:<span id="tem"></span></p>
+					<p>风力:<span id="windforce"></span></p>
+					<p>风向:<span id="winddirect"></span></p>
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script>
+			AMap.service('AMap.Weather', function() {
+				var weather = new AMap.Weather();
+				weather.getLive('东莞市', function(err, data) {
+					if (!err) {
+						document.getElementById('wea').innerHTML = data.weather;
+						document.getElementById('tem').innerHTML = data.temperature+'℃';
+						document.getElementById('windforce').innerHTML = data.windPower+'级';
+						document.getElementById('winddirect').innerHTML = data.windDirection;
+					}
+				})
+			});
+		</script>
+	</body>
+</html>
